@@ -1,0 +1,80 @@
+.login_form {
+    padding-top: 36px;
+}
+
+.login_email, .login_password {
+    margin-bottom: 28px !important;
+}
+
+.login_form-input input {
+    box-sizing: border-box !important;
+    height: 35px !important;
+}
+
+.login_form-input label {
+    top: -3px !important;
+}
+
+.login_form button {
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    text-transform: none;
+}
+
+.login_divider {
+    margin-top: 26px;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 191px; */
+    height: 18px;
+}
+
+.login_divide-line {
+    width: 64px;
+    height: 0px;
+    /* UI Properties */
+    border: 1px solid #E1E4EA;
+    opacity: 1;
+}
+
+#login_divide-text {
+    margin: 0 20px;
+    width: 22px;
+    height: 18px;
+    /* UI Properties */
+    font: normal normal bold 14px/18px Meiryo UI;
+    letter-spacing: 0px;
+    color: #343434;
+}
+
+.login_other-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login_other-options button{
+    height: 37px;
+    border-radius: 3px;
+    font: normal normal normal 14px/16px 'Roboto', sans-serif;
+    letter-spacing: 0px;
+    opacity: 1;
+    text-transform: none;
+}
+
+#login_facebook {
+    width: 126px;
+    /* UI Properties */
+    background: #4266B2 0% 0% no-repeat padding-box;
+    color: #FFFFFF;
+}
+
+#login_google {
+    width: 119px;
+    /* UI Properties */
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border: 1px solid #E4E4E4;
+    color: #0A0102;
+}

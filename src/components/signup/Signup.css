@@ -1,0 +1,19 @@
+.signup_form {
+    padding-top: 36px;
+}
+
+.signup_form-input {
+    margin-bottom: 28px !important;
+}
+
+.signup_form-input input {
+    box-sizing: border-box !important;
+    height: 35px !important;
+}
+
+.signup_form button {
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    text-transform: none;
+}

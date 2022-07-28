@@ -1,0 +1,90 @@
+.account_outer-box * {
+    box-sizing: border-box;
+}
+
+.account_outer-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.account_inner-box {
+    display: flex;
+    align-items: center;
+    width: 727px;
+    height: 425px;
+}
+
+.account_box1 {
+    width: 338px;
+    height: 391px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border-radius: 21px 0 0 21px;
+    opacity: 1;
+}
+
+.account_figure {
+    margin: 0;
+}
+
+.account_figure img {
+    border-radius: 50%;
+    margin-bottom: 31px;
+}
+
+.account_figure figcaption {
+    height: 24px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0px;
+    color: #0A0102;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.account_box2 {
+    width: 389px;
+    height: 425px;
+    padding: 28px 68px 38px 69px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 15px #00000029;
+    border: 1px solid #E4E4E4;
+    border-radius: 6px;
+    opacity: 1;
+}
+
+.account_switch {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.account_switch button {
+    height: 33px;
+    padding: 0;
+    /* UI Properties */
+    font-size: 24px;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0px;
+    color: #878787;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.account_form-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
