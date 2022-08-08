@@ -36,19 +36,32 @@ function UserAccount() {
 
                 <div className="account_box2">
 
-                    <div className="account_switch">
+                    <div className="account_section1">
 
-                        <Button onClick={() => setExistAccount(true)} variant="text" sx={{ width: '72px' }}>Login</Button>
+                        <div className='account_switch'>
 
-                        <Button onClick={() => setExistAccount(false)} variant="text" sx={{ width: '89px' }}>Signup</Button>
+                            <Button onClick={() => setExistAccount(true)} variant="text" sx={{ width: '72px' }}>Login</Button>
+
+                            {existAccount && <div className='account_active-btn' />}
+
+                        </div>
+
+                        <div className='account_switch'>
+
+                            <Button onClick={() => setExistAccount(false)} variant="text" sx={{ width: '89px' }}>Signup</Button>
+
+                            {!existAccount && <div className='account_active-btn' />}
+
+                        </div>
 
                     </div>
 
-                    <div className="account_form-content">
+                    <div className="account_section2">
 
                         {switchForm(existAccount)}
 
                     </div>
+
 
                 </div>
 

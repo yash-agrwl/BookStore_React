@@ -2,6 +2,7 @@ import React from 'react'
 import './Login.css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import { InputLabel } from '@mui/material';
 
 function Login() {
     return (
@@ -11,13 +12,19 @@ function Login() {
 
                 <div className="login_email">
 
-                    <TextField className='login_form-input' variant="outlined" type='email' label='Email id' size='small' fullWidth />
+                    <InputLabel className='login_input-label' error>Email Id</InputLabel>
+
+                    <TextField className='login_form-input' variant="outlined" type='email' size='small' fullWidth />
 
                 </div>
 
                 <div className="login_password">
 
-                    <TextField className='login_form-input' variant="outlined" type='password' label='Password' size='small' fullWidth />
+                    <InputLabel className='login_input-label'>Password</InputLabel>
+
+                    <TextField className='login_form-input' variant="outlined" type='password' size='small' fullWidth />
+
+                    <a href='#' id='login_forgot-pwd'>Forgot Password?</a>
 
                 </div>
 

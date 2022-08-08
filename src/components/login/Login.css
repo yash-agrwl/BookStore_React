@@ -1,9 +1,20 @@
 .login_form {
-    padding-top: 36px;
+    padding-top: 22px;
 }
 
-.login_email, .login_password {
-    margin-bottom: 28px !important;
+.login_email,
+.login_password {
+    margin-bottom: 15px !important;
+}
+
+.login_input-label {
+    height: 18px;
+    text-align: left;
+    font-size: 14px !important;
+    letter-spacing: 0px !important;
+    color: #0A0102 !important;
+    text-transform: capitalize;
+    opacity: 1;
 }
 
 .login_form-input input {
@@ -11,8 +22,14 @@
     height: 35px !important;
 }
 
-.login_form-input label {
-    top: -3px !important;
+#login_forgot-pwd {
+    font-size: 13px;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    letter-spacing: 0px;
+    color: #9D9D9D;
+    opacity: 1;
 }
 
 .login_form button {
@@ -28,7 +45,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 191px; */
     height: 18px;
 }
 
@@ -55,7 +71,7 @@
     justify-content: space-between;
 }
 
-.login_other-options button{
+.login_other-options button {
     height: 37px;
     border-radius: 3px;
     font: normal normal normal 14px/16px 'Roboto', sans-serif;
