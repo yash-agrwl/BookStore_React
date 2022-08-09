@@ -1,10 +1,14 @@
 .login_form {
     padding-top: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 .login_email,
 .login_password {
-    margin-bottom: 15px !important;
+    margin-bottom: 5px !important;
 }
 
 .login_input-label {
@@ -20,6 +24,12 @@
 .login_form-input input {
     box-sizing: border-box !important;
     height: 35px !important;
+}
+
+.login_form-input p {
+    margin: 0;
+    height: 10px;
+    font-size: 10px;
 }
 
 #login_forgot-pwd {
@@ -69,6 +79,7 @@
 .login_other-options {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 9px;
 }
 
 .login_other-options button {

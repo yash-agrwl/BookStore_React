@@ -3,8 +3,69 @@ import './Signup.css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { InputLabel } from '@mui/material';
+const fullNameRegex = /^[A-Z][a-z]{2,}\s[A-Z][a-z]{2,}$/;
+const emailRegex = /^[a-z0-9]+([-+_.][a-z0-9]+)?[@][a-z0-9]+[.][a-z0-9]{2,3}([.][a-z]{2})?$/;
+const passwordRegex = /^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])[\w\d]{0,}[\W]{1}[\w\d]{0,}$/;
+const mobileNoRegex = /^[+][0-9]{2}[0-9]{10}/;
 
 function Signup() {
+    const [signUpObj, setSignUpObj] = React.useState({ fullName: "", email: "", password: "", mobileNo: "" });
+    const [regexObj, setRegexObj] = React.useState({
+        fullNameBorder: false, fullNameHelper: "", emailBorder: false, emailHelper: "", pwdBorder: false, pwdHelper: "", 
+        mobileNoBorder: false, mobileNoHelper: ""
+    });
+
+    const TakeFullName = (event) => {
+        setSignUpObj((prevState) => ({ ...prevState, fullName: event.target.value }))
+    }
+
+    const TakeEmail = (event) => {
+        setSignUpObj((prevState) => ({ ...prevState, email: event.target.value }))
+    }
+
+    const TakePassword = (event) => {
+        setSignUpObj((prevState) => ({ ...prevState, password: event.target.value }))
+    }
+
+    const TakeMobileNo = (event) => {
+        setSignUpObj((prevState) => ({ ...prevState, mobileNo: event.target.value }))
+    }
+
+    const Submit = () => {
+        let fullNameTest = fullNameRegex.test(signUpObj.fullName)
+        let emailTest = emailRegex.test(signUpObj.email)
+        let passwordTest = passwordRegex.test(signUpObj.password)
+        let mobileNoTest = mobileNoRegex.test(signUpObj.mobileNo)
+
+        if (fullNameTest === true) {
+            setRegexObj((prevState) => ({ ...prevState, fullNameBorder: false, fullNameHelper: "" }))
+        }
+        else if (fullNameTest === false) {
+            setRegexObj((prevState) => ({ ...prevState, fullNameBorder: true, fullNameHelper: "Enter Valid FirstName" }))
+        }
+
+        if (emailTest === true) {
+            setRegexObj((prevState) => ({ ...prevState, emailBorder: false, emailHelper: "" }))
+        }
+        else if (emailTest === false) {
+            setRegexObj((prevState) => ({ ...prevState, emailBorder: true, emailHelper: "Enter Valid Email" }))
+        }
+
+        if (passwordTest === true) {
+            setRegexObj((prevState) => ({ ...prevState, pwdBorder: false, pwdHelper: "" }))
+        }
+        else if (passwordTest === false) {
+            setRegexObj((prevState) => ({ ...prevState, pwdBorder: true, pwdHelper: "Enter Valid Password" }))
+        }
+
+        if (mobileNoTest === true) {
+            setRegexObj((prevState) => ({ ...prevState, mobileNoBorder: false, mobileNoHelper: "" }))
+        }
+        else if (mobileNoTest === false) {
+            setRegexObj((prevState) => ({ ...prevState, mobileNoBorder: true, mobileNoHelper: "Enter Valid LastName" }))
+        }
+    }
+
     return (
         <form className='signup_form'>
 
@@ -12,7 +73,8 @@ function Signup() {
 
                 <InputLabel className='signup_input-label'>Full Name</InputLabel>
 
-                <TextField className='signup_textfield' variant="outlined" type='text' size='small' fullWidth />
+                <TextField onChange={TakeFullName} error={regexObj.fullNameBorder} helperText={regexObj.fullNameHelper}
+                     className='signup_textfield' variant="outlined" type='text' size='small' fullWidth />
 
             </div>
 
@@ -20,7 +82,8 @@ function Signup() {
 
                 <InputLabel className='signup_input-label'>Email Id</InputLabel>
 
-                <TextField className='signup_textfield' variant="outlined" type='email' size='small' fullWidth />
+                <TextField onChange={TakeEmail} error={regexObj.emailBorder} helperText={regexObj.emailHelper}
+                     className='signup_textfield' variant="outlined" type='email' size='small' fullWidth />
 
             </div>
 
@@ -28,7 +91,8 @@ function Signup() {
 
                 <InputLabel className='signup_input-label'>Password</InputLabel>
 
-                <TextField className='signup_textfield' variant="outlined" type='password' size='small' fullWidth />
+                <TextField onChange={TakePassword} error={regexObj.pwdBorder} helperText={regexObj.pwdHelper}
+                     className='signup_textfield' variant="outlined" type='password' size='small' fullWidth />
 
             </div>
 
@@ -36,11 +100,12 @@ function Signup() {
 
                 <InputLabel className='signup_input-label'>Mobile Number</InputLabel>
 
-                <TextField className='signup_textfield' variant="outlined" type='tel' size='small' fullWidth />
+                <TextField onChange={TakeMobileNo} error={regexObj.mobileNoBorder} helperText={regexObj.mobileNoHelper}
+                     className='signup_textfield' variant="outlined" type='tel' size='small' fullWidth />
 
             </div>
 
-            <Button variant="contained" fullWidth>Signup</Button>
+            <Button onClick={Submit} variant="contained" fullWidth>Signup</Button>
 
         </form>
     )

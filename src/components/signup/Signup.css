@@ -1,5 +1,9 @@
 .signup_form {
     padding-top: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 .signup_input-label {
@@ -13,12 +17,18 @@
 }
 
 .signup_form-input {
-    margin-bottom: 15px !important;
+    margin-bottom: 5px !important;
 }
 
 .signup_textfield input {
     box-sizing: border-box !important;
     height: 35px !important;
+}
+
+.signup_textfield p {
+    margin: 0;
+    height: 10px;
+    font-size: 10px;
 }
 
 .signup_form button {

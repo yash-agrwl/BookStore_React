@@ -3,18 +3,53 @@ import './Login.css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { InputLabel } from '@mui/material';
+const emailRegex = /^[a-z0-9]+([-+_.][a-z0-9]+)?[@][a-z0-9]+[.][a-z0-9]{2,3}([.][a-z]{2})?$/;
+const passwordRegex = /^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])[\w\d]{0,}[\W]{1}[\w\d]{0,}$/;
 
 function Login() {
+    const [LogInObj, setLogInObj] = React.useState({ email: "", password: "" });
+    const [regexObj, setRegexObj] = React.useState({ emailBorder: false, emailHelper: "", pwdBorder: false, pwdHelper: "" });
+
+    const TakeEmail = (event) => {
+        setLogInObj((prevState) => ({ ...prevState, email: event.target.value }))
+    }
+
+    const TakePassword = (event) => {
+        setLogInObj((prevState) => ({ ...prevState, password: event.target.value }))
+    }
+
+    const Submit = () => {
+        // console.log(signInObj.email)
+        // console.log(signInObj.password)
+
+        let emailTest = emailRegex.test(LogInObj.email)
+        let passwordTest = passwordRegex.test(LogInObj.password)
+
+        if (emailTest === true) {
+            setRegexObj((prevState) => ({ ...prevState, emailBorder: false, emailHelper: "" }))
+        }
+        else if (emailTest === false) {
+            setRegexObj((prevState) => ({ ...prevState, emailBorder: true, emailHelper: "Enter correct Email" }))
+        }
+
+        if (passwordTest === true) {
+            setRegexObj((prevState) => ({ ...prevState, pwdBorder: false, pwdHelper: "" }))
+        }
+        else if (passwordTest === false) {
+            setRegexObj((prevState) => ({ ...prevState, pwdBorder: true, pwdHelper: "Enter correct Password" }))
+        }
+    }
+
     return (
         <>
-
             <form className='login_form'>
 
                 <div className="login_email">
 
                     <InputLabel className='login_input-label' error>Email Id</InputLabel>
 
-                    <TextField className='login_form-input' variant="outlined" type='email' size='small' fullWidth />
+                    <TextField onChange={TakeEmail} error={regexObj.emailBorder} helperText={regexObj.emailHelper}
+                         className='login_form-input' variant="outlined" type='email' size='small' fullWidth />
 
                 </div>
 
@@ -22,13 +57,14 @@ function Login() {
 
                     <InputLabel className='login_input-label'>Password</InputLabel>
 
-                    <TextField className='login_form-input' variant="outlined" type='password' size='small' fullWidth />
+                    <TextField onChange={TakePassword} error={regexObj.pwdBorder} helperText={regexObj.pwdHelper}
+                         className='login_form-input' variant="outlined" type='password' size='small' fullWidth />
 
                     <a href='#' id='login_forgot-pwd'>Forgot Password?</a>
 
                 </div>
 
-                <Button variant="contained" fullWidth>Login</Button>
+                <Button onClick={Submit} variant="contained" fullWidth>Login</Button>
 
             </form>
 
@@ -49,7 +85,6 @@ function Login() {
                 <Button id='login_google' variant="contained">Google</Button>
 
             </div>
-
         </>
     )
 }
