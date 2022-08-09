@@ -4,13 +4,19 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { InputLabel } from '@mui/material';
 import { register } from '../../services/userservice';
+import InputAdornment from '@mui/material/InputAdornment';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const fullNameRegex = /^[A-Z][a-z]{2,}\s[A-Z][a-z]{2,}$/;
 const emailRegex = /^[a-z0-9]+([-+_.][a-z0-9]+)?[@][a-z0-9]+[.][a-z0-9]{2,3}([.][a-z]{2})?$/;
 const passwordRegex = /^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])[\w\d]{0,}[\W]{1}[\w\d]{0,}$/;
 const mobileNoRegex = /^[+][0-9]{2}[0-9]{10}/;
 
 function Signup() {
+    const [showPassword, setShowPassword] = React.useState(false);
+
     const [signUpObj, setSignUpObj] = React.useState({ fullName: "", email: "", password: "", mobileNumber: "" });
+
     const [regexObj, setRegexObj] = React.useState({
         fullNameBorder: false, fullNameHelper: "", emailBorder: false, emailHelper: "", pwdBorder: false, pwdHelper: "",
         mobileNoBorder: false, mobileNoHelper: ""
@@ -77,6 +83,18 @@ function Signup() {
         }
     }
 
+    const togglePasswordVisibility = (showPassword) => {
+        return (
+            <>
+                {showPassword ?
+                    <VisibilityOffIcon onClick={() => setShowPassword(false)} className='signup_password-icon' />
+                    :
+                    <VisibilityIcon onClick={() => setShowPassword(true)} className='signup_password-icon' />
+                }
+            </>
+        )
+    }
+
     return (
         <form className='signup_form'>
 
@@ -103,7 +121,15 @@ function Signup() {
                 <InputLabel className='signup_input-label'>Password</InputLabel>
 
                 <TextField onChange={TakePassword} error={regexObj.pwdBorder} helperText={regexObj.pwdHelper}
-                    className='signup_textfield' variant="outlined" type='password' size='small' fullWidth />
+                    className='signup_textfield' size='small' fullWidth type={showPassword ? 'text' : 'password'}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                {togglePasswordVisibility(showPassword)}
+                            </InputAdornment>
+                        )
+                    }}
+                />
 
             </div>
 

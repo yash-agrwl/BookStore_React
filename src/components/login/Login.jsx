@@ -4,10 +4,14 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { InputLabel } from '@mui/material';
 import { logIn } from '../../services/userservice';
+import InputAdornment from '@mui/material/InputAdornment';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const emailRegex = /^[a-z0-9]+([-+_.][a-z0-9]+)?[@][a-z0-9]+[.][a-z0-9]{2,3}([.][a-z]{2})?$/;
 const passwordRegex = /^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])[\w\d]{0,}[\W]{1}[\w\d]{0,}$/;
 
 function Login() {
+    const [showPassword, setShowPassword] = React.useState(false);
     const [logInObj, setLogInObj] = React.useState({ email: "", password: "" });
     const [regexObj, setRegexObj] = React.useState({ emailBorder: false, emailHelper: "", pwdBorder: false, pwdHelper: "" });
 
@@ -50,6 +54,18 @@ function Login() {
         }
     }
 
+    const togglePasswordVisibility = (showPassword) => {
+        return (
+            <>
+                {showPassword ?
+                    <VisibilityOffIcon onClick={() => setShowPassword(false)} className='login_password-icon' />
+                    :
+                    <VisibilityIcon onClick={() => setShowPassword(true)} className='login_password-icon' />
+                }
+            </>
+        )
+    }
+
     return (
         <>
             <form className='login_form'>
@@ -68,7 +84,15 @@ function Login() {
                     <InputLabel className='login_input-label'>Password</InputLabel>
 
                     <TextField onChange={TakePassword} error={regexObj.pwdBorder} helperText={regexObj.pwdHelper}
-                        className='login_form-input' variant="outlined" type='password' size='small' fullWidth />
+                        className='login_form-input' size='small' fullWidth type={showPassword ? 'text' : 'password'}
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    {togglePasswordVisibility(showPassword)}
+                                </InputAdornment>
+                            )
+                        }}
+                    />
 
                     <a href='#' id='login_forgot-pwd'>Forgot Password?</a>
 

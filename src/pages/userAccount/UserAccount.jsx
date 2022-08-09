@@ -40,7 +40,8 @@ function UserAccount() {
 
                         <div className='account_switch'>
 
-                            <Button onClick={() => setExistAccount(true)} variant="text" sx={{ width: '72px' }}>Login</Button>
+                            <Button onClick={() => setExistAccount(true)} variant="text" disableRipple
+                                sx={{ width: '72px', color: (existAccount && 'black!important') }}>Login</Button>
 
                             {existAccount && <div className='account_active-btn' />}
 
@@ -48,7 +49,8 @@ function UserAccount() {
 
                         <div className='account_switch'>
 
-                            <Button onClick={() => setExistAccount(false)} variant="text" sx={{ width: '89px' }}>Signup</Button>
+                            <Button onClick={() => setExistAccount(false)} variant="text" disableRipple
+                                 sx={{ width: '89px', color: (!existAccount && 'black!important') }}>Signup</Button>
 
                             {!existAccount && <div className='account_active-btn' />}
 
