@@ -41,7 +41,7 @@ function Signup() {
             setRegexObj((prevState) => ({ ...prevState, fullNameBorder: false, fullNameHelper: "" }))
         }
         else if (fullNameTest === false) {
-            setRegexObj((prevState) => ({ ...prevState, fullNameBorder: true, fullNameHelper: "Enter Valid FirstName" }))
+            setRegexObj((prevState) => ({ ...prevState, fullNameBorder: true, fullNameHelper: "Enter Valid FullName" }))
         }
 
         if (emailTest === true) {
@@ -62,7 +62,7 @@ function Signup() {
             setRegexObj((prevState) => ({ ...prevState, mobileNoBorder: false, mobileNoHelper: "" }))
         }
         else if (mobileNoTest === false) {
-            setRegexObj((prevState) => ({ ...prevState, mobileNoBorder: true, mobileNoHelper: "Enter Valid LastName" }))
+            setRegexObj((prevState) => ({ ...prevState, mobileNoBorder: true, mobileNoHelper: "Enter Valid Mobile Number" }))
         }
     }
 
