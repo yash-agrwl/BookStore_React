@@ -3,11 +3,12 @@ import './Login.css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { InputLabel } from '@mui/material';
+import { logIn } from '../../services/userservice';
 const emailRegex = /^[a-z0-9]+([-+_.][a-z0-9]+)?[@][a-z0-9]+[.][a-z0-9]{2,3}([.][a-z]{2})?$/;
 const passwordRegex = /^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])[\w\d]{0,}[\W]{1}[\w\d]{0,}$/;
 
 function Login() {
-    const [LogInObj, setLogInObj] = React.useState({ email: "", password: "" });
+    const [logInObj, setLogInObj] = React.useState({ email: "", password: "" });
     const [regexObj, setRegexObj] = React.useState({ emailBorder: false, emailHelper: "", pwdBorder: false, pwdHelper: "" });
 
     const TakeEmail = (event) => {
@@ -22,8 +23,8 @@ function Login() {
         // console.log(signInObj.email)
         // console.log(signInObj.password)
 
-        let emailTest = emailRegex.test(LogInObj.email)
-        let passwordTest = passwordRegex.test(LogInObj.password)
+        let emailTest = emailRegex.test(logInObj.email)
+        let passwordTest = passwordRegex.test(logInObj.password)
 
         if (emailTest === true) {
             setRegexObj((prevState) => ({ ...prevState, emailBorder: false, emailHelper: "" }))
@@ -38,6 +39,15 @@ function Login() {
         else if (passwordTest === false) {
             setRegexObj((prevState) => ({ ...prevState, pwdBorder: true, pwdHelper: "Enter correct Password" }))
         }
+
+        if (emailTest === true && passwordTest === true) {
+            logIn(logInObj).then((response) => {
+                console.log(response);
+                localStorage.setItem('token', response.data.token)
+            }).catch((error) => {
+                console.log(error)
+            })
+        }
     }
 
     return (
@@ -49,7 +59,7 @@ function Login() {
                     <InputLabel className='login_input-label' error>Email Id</InputLabel>
 
                     <TextField onChange={TakeEmail} error={regexObj.emailBorder} helperText={regexObj.emailHelper}
-                         className='login_form-input' variant="outlined" type='email' size='small' fullWidth />
+                        className='login_form-input' variant="outlined" type='email' size='small' fullWidth />
 
                 </div>
 
@@ -58,7 +68,7 @@ function Login() {
                     <InputLabel className='login_input-label'>Password</InputLabel>
 
                     <TextField onChange={TakePassword} error={regexObj.pwdBorder} helperText={regexObj.pwdHelper}
-                         className='login_form-input' variant="outlined" type='password' size='small' fullWidth />
+                        className='login_form-input' variant="outlined" type='password' size='small' fullWidth />
 
                     <a href='#' id='login_forgot-pwd'>Forgot Password?</a>
 
