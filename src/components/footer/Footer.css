@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+.footer_outer-box {
+    display: flex;
+    width: 100vw;
+    height: 50px;
+    background: #2E1D1E 0% 0% no-repeat padding-box;
+    opacity: 1;
+    justify-content: center;
+}
+
+.footer_inner-box {
+    display: flex;
+    width: 80%;
+    color: white;
+    align-items: center;
+}
+
+.footer_inner-box span {
+    width: 346px;
+    height: 15px;
+    text-align: left;
+    font-family: Lato;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
