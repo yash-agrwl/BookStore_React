@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+.home_outer-box {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    min-height: 85vh;
+}
+
+.home_inner-box{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.boolist_header{
+    height: 85px;
+    display: flex;
+    align-items: center;
+}
+
+.home_header_box1{
+    display: flex;
+}
+
+.home_main-container{
+    display: flex;
+    flex-flow: row wrap;
+    min-height: 63%;
+}
+
+.pagenation{
+    height: 144px;
+}
