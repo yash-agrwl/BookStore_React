@@ -1,6 +1,6 @@
 import React from 'react'
 import './Quickview.css'
-import bookimg from '../../assets/book-images/Image 11.png';
+import bookimg from '../../assets/book-images/Image1@3x.png';
 import StarIcon from '@mui/icons-material/Star';
 
 function Quickview(props) {
@@ -9,7 +9,7 @@ function Quickview(props) {
 
             <div className="quickview_section1">
 
-                <img src={bookimg} />
+                <img src={bookimg} alt='book-cover-img'/>
 
             </div>
 

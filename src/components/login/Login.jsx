@@ -48,6 +48,7 @@ function Login() {
             logIn(logInObj).then((response) => {
                 console.log(response);
                 localStorage.setItem('token', response.data.token)
+                localStorage.setItem('username',response.data.data.fullName)
             }).catch((error) => {
                 console.log(error)
             })

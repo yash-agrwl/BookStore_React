@@ -21,7 +21,7 @@ function Home(props) {
 
             <div className="home_inner-box">
 
-                <div className="boolist_header">
+                <div className="home_header">
 
                     <div className="home_header_box1">
 
@@ -36,7 +36,7 @@ function Home(props) {
                 <div className="home_main-container">
 
                     {bookList.map((book) => (
-                        <Quickview key={book.bookId} book={book} openBook={props.openBook}/>
+                        <Quickview key={book.bookID} book={book} openBook={props.openBook}/>
                     ))}
 
                 </div>

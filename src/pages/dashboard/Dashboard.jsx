@@ -3,6 +3,7 @@ import './Dashboard.css'
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
 import Home from '../../components/home/Home'
+import Book from '../../components/book/Book'
 
 function Dashboard() {
     const [currentBook, setCurrentBook] = React.useState({})
@@ -16,11 +17,13 @@ function Dashboard() {
 
     return (
         <div>
+
             <Header />
 
-            <Home openBook={openBook} />
+            {view ? <Book book={currentBook} /> : <Home openBook={openBook} />}
 
             <Footer />
+
         </div>
     )
 }
