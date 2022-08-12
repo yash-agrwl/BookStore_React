@@ -8,6 +8,7 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { addFeedback, addToCart, getAllFeedback, getCartItems, updateCart } from '../../services/dataservice'
 import Feedback from '../feedback/Feedback'
 
@@ -143,7 +144,7 @@ function Book(props) {
                                 <Button id='cart-btn' variant='contained' onClick={addBookToCart}>Add to bag</Button>
                             }
 
-                            <Button id='wishlist-btn' variant='contained'>Wishlist</Button>
+                            <Button id='wishlist-btn' variant='contained' startIcon={<FavoriteIcon />}>Wishlist</Button>
 
                         </div>
 
