@@ -8,14 +8,16 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { addFeedback, addToCart, getCartItems, updateCart } from '../../services/dataservice'
+import { addFeedback, addToCart, getAllFeedback, getCartItems, updateCart } from '../../services/dataservice'
 
 function Book(props) {
     const [rating, setRating] = React.useState(0);
     const [bookCount, setBookCount] = React.useState(0);
     const [addFeedbackObj, setAddFeedbackObj] = React.useState({ bookId: props.book.bookID, rating: 0, comment: '' });
+    const [feedbacks, setFeedbacks] = React.useState([])
 
     React.useEffect(() => {
+
         getCartItems().then((response) => {
             console.log(response);
             let check = response.data.data.filter((cart) => {
@@ -28,8 +30,28 @@ function Book(props) {
         }).catch((error) => {
             console.log(error)
         })
+
+        getFeedbacksForBook()
         // eslint-disable-next-line
     }, [])
+
+    const getFeedbacksForBook = () => {
+        getAllFeedback(props.book.bookID).then((response) => {
+            console.log(response);
+            setFeedbacks(response.data.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+    const submitFeedback = () => {
+        console.log(addFeedbackObj)
+        addFeedback(addFeedbackObj).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
 
     const addBookToCart = () => {
         addToCart(props.book.bookID).then((response) => {
@@ -72,15 +94,6 @@ function Book(props) {
 
             </div>
         )
-    }
-
-    const submitFeedback = () => {
-        console.log(addFeedbackObj)
-        addFeedback(addFeedbackObj).then((response) => {
-            console.log(response);
-        }).catch((error) => {
-            console.log(error)
-        })
     }
 
     return (

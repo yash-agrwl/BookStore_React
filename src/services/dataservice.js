@@ -31,3 +31,8 @@ export const addFeedback = (addFeedbackObj) => {
     let response = axios.post("https://localhost:44356/api/Feedback/Add", addFeedbackObj, headerConfig)
     return response
 }
+
+export const getAllFeedback = (bookId) => {
+    let response = axios.get(`https://localhost:44356/api/Feedback/GetAll?bookId=${bookId}`, headerConfig)
+    return response
+}
