@@ -3,10 +3,13 @@ import './Feedback.css'
 import Rating from '@mui/material/Rating';
 
 function Feedback(props) {
+
+    let firstLetters = props.feedback.fullName.split(' ').map(word => word[0]).join('');
+
     return (
         <div className="feedback_main-section">
 
-            <div className="feedback_section1">YA</div>
+            <div className="feedback_section1">{firstLetters}</div>
 
             <div className="feedback_section2">
 

@@ -34,7 +34,7 @@ function Header() {
                             <PersonOutlineIcon sx={{ color: 'white', width: '20px', height: '20px' }} />
 
                             <span className='header_menu_label'>
-                                {localStorage.getItem('username').trim().split(/\s+/)[0]}
+                                {localStorage.getItem('username').split(' ')[0]}
                             </span>
 
                         </div>
