@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.feedback_main-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 18px;
+    /* min-height: 100px; */
+}
+
+.feedback_section1 {
+    width: 27px;
+    height: 27px;
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border: 1px solid #E4E4E4;
+    border-radius: 50%;
+    font: normal normal normal 11px/15px Roboto;
+    letter-spacing: 0px;
+    color: rgba(112, 112, 112, 0.55);
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback_section2 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 8px;
+}
+
+.feedback_username {
+    /* width: 79px; */
+    height: 20px;
+    text-align: left;
+    font: normal normal normal 15px/20px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+#feedback_rating {
+    margin-top: 7px;
+    margin-bottom: 9px;
+}
+
+.feedback_comment {
+    /* height: 40px; */
+    text-align: left;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+}

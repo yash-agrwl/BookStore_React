@@ -9,9 +9,9 @@ import StarIcon from '@mui/icons-material/Star';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { addFeedback, addToCart, getAllFeedback, getCartItems, updateCart } from '../../services/dataservice'
+import Feedback from '../feedback/Feedback'
 
 function Book(props) {
-    const [rating, setRating] = React.useState(0);
     const [bookCount, setBookCount] = React.useState(0);
     const [addFeedbackObj, setAddFeedbackObj] = React.useState({ bookId: props.book.bookID, rating: 0, comment: '' });
     const [feedbacks, setFeedbacks] = React.useState([])
@@ -32,6 +32,7 @@ function Book(props) {
         })
 
         getFeedbacksForBook()
+
         // eslint-disable-next-line
     }, [])
 
@@ -48,6 +49,8 @@ function Book(props) {
         console.log(addFeedbackObj)
         addFeedback(addFeedbackObj).then((response) => {
             console.log(response);
+            getFeedbacksForBook();
+            setAddFeedbackObj((prevState) => ({ ...prevState, rating: 0, comment: '' }));
         }).catch((error) => {
             console.log(error)
         })
@@ -195,9 +198,8 @@ function Book(props) {
 
                                 <div className="book_rating_heading">Overall rating</div>
 
-                                <Rating id='book_feedback-rating' name="feedback-rating" value={rating}
+                                <Rating id='book_feedback-rating' name="feedback-rating" value={addFeedbackObj.rating}
                                     onChange={(event, newValue) => {
-                                        setRating(newValue);
                                         setAddFeedbackObj((prevState) => ({ ...prevState, rating: newValue }));
                                     }}
                                 />
@@ -215,7 +217,7 @@ function Book(props) {
 
                             <div className="book_show-feedback">
 
-
+                                {feedbacks.map((feedback) => (<Feedback key={feedback.feedbackID} feedback={feedback} />))}
 
                             </div>
 
@@ -227,7 +229,7 @@ function Book(props) {
 
             </div>
 
-        </div>
+        </div >
     )
 }
 

@@ -27,7 +27,8 @@
 .book_main-container {
     display: flex;
     align-items: flex-start;
-    min-height: 89%;
+    min-height: 75%;
+    margin-bottom: 110px;
 }
 
 .book_extra-img-box {
@@ -296,4 +297,10 @@
     letter-spacing: 0px;
     color: #FFFFFF;
     text-transform: capitalize;
+}
+
+.book_show-feedback {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
 }

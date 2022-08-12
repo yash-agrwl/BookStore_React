@@ -22,7 +22,7 @@ function Dashboard() {
 
             {view ? <Book book={currentBook} /> : <Home openBook={openBook} />}
 
-            <Footer />
+            {view ? null : <Footer />}
 
         </div>
     )
