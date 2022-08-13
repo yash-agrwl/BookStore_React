@@ -9,6 +9,7 @@
     border-radius: 3px;
     display: flex;
     flex-direction: column;
+    cursor: default;
 }
 
 .popper_login_section1 {
@@ -49,6 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .popper_divider {
@@ -78,6 +80,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 7px;
+    cursor: pointer;
+    width: fit-content;
 }
 
 /* Common class between LogoutPopper and LoginPopper*/
