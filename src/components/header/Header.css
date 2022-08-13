@@ -73,6 +73,7 @@
     height: 36px;
     width: 31px;
     margin: 18px 33px 6px;
+    cursor: pointer;
 }
 
 .header_menu_label {

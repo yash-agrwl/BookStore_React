@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.header_logout-popper {
+    width: 200px;
+    height: 182px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    border: none !important;
+    border-radius: 3px;
+}
+
+.header_logout-popper span {
+    height: 16px;
+    text-align: left;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+    margin-left: 8px;
+}
+
+.popper_greeting {
+    height: 16px;
+    text-align: left;
+    font: normal normal bolder 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+    padding: 16px 0 9px 26px;
+    box-sizing: content-box;
+    cursor: default;
+}
+
+.popper_profile {
+    position: relative;
+}
+
+.popper_profile #profile:hover {
+    background: #FFDBDD 0% 0% no-repeat padding-box;
+}
+
+
+
+#profile:hover>#profile-icon,
+#profile:hover>#profile-heading {
+    color: #A03037;
+}
+
+.popper_inner-div {
+    display: flex;
+    align-items: center;
+    height: 27px;
+    margin-left: 26px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.popper_icon {
+    width: 14px !important;
+    height: 14px !important;
+    color: #878787;
+    opacity: 1;
+}
+
+.popper_logout {
+    width: 123px;
+    height: 33px;
+    border: 1px solid #A03037;
+    border-radius: 2px;
+    opacity: 1;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #A03037;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 7px 0 20px 20px;
+    cursor: pointer;
+}
