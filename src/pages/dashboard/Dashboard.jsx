@@ -16,7 +16,7 @@ function Dashboard() {
     }
 
     return (
-        <div>
+        <div style={{ width: '100%' }}>
 
             <Header />
 

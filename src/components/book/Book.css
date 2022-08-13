@@ -7,7 +7,7 @@
 
 .book_outer-box {
     display: flex;
-    width: 100vw;
+    width: 100%;
     justify-content: center;
     min-height: 85vh;
 }
