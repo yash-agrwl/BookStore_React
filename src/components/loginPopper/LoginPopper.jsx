@@ -1,14 +1,12 @@
 import React from 'react'
-import './LogoutPopper.css'
+import './LoginPopper.css'
 import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
-function LogoutPopper() {
-    let userName = localStorage.getItem('username').split(' ')[0];
-
+function LoginPopper() {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -24,31 +22,29 @@ function LogoutPopper() {
 
                 <PersonOutlineIcon sx={{ color: 'white', width: '20px', height: '20px' }} />
 
-                <span className='header_menu_label'>{userName}</span>
+                <span className='header_menu_label'>Profile</span>
 
             </div>
 
             <Popper id={id} open={open} anchorEl={anchorEl}>
 
-                <Box className='popper_logout-user' sx={{ bgcolor: 'background.paper' }}>
+                <Box className='popper_login-user' sx={{ bgcolor: 'background.paper' }}>
 
-                    <div className="popper_greeting">Hello {userName},</div>
+                    <div className="popper_login_section1">
 
-                    <div className="popper_logout_profile">
+                        <div className="popper_welcome">Welcome</div>
 
-                        <div className="popper_logout_inner-div" id='profile'>
+                        <div className="popper_detail">To acsess account and manage orders</div>
 
-                            <PersonOutlineIcon className='popper_icon' id='profile-icon' />
-
-                            <span id='profile-heading'>Profile</span>
-
-                        </div>
-
+                        <div className="popper_login-btn">LOGIN/SIGNUP</div>
+                        
                     </div>
 
-                    <div className="popper_logout_orders">
+                    <div className="popper_divider" />
 
-                        <div className="popper_logout_inner-div">
+                    <div className="popper_login_section2">
+
+                        <div className="popper_login_orders">
 
                             <LocalMallOutlinedIcon className='popper_icon' />
 
@@ -56,11 +52,7 @@ function LogoutPopper() {
 
                         </div>
 
-                    </div>
-
-                    <div className="popper_logout_wishlist">
-
-                        <div className="popper_logout_inner-div">
+                        <div className="popper_login_wishlist">
 
                             <FavoriteBorderOutlinedIcon className='popper_icon' />
 
@@ -70,8 +62,6 @@ function LogoutPopper() {
 
                     </div>
 
-                    <div className="popper_logout-btn">Logout</div>
-
                 </Box>
 
             </Popper>
@@ -79,4 +69,4 @@ function LogoutPopper() {
     )
 }
 
-export default LogoutPopper
+export default LoginPopper

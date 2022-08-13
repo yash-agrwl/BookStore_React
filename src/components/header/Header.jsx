@@ -4,6 +4,7 @@ import InputBase from '@mui/material/InputBase';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import logo from '../../assets/education.svg'
 import LogoutPopper from '../logoutPopper/LogoutPopper';
+import LoginPopper from '../loginPopper/LoginPopper';
 
 function Header() {
     return (
@@ -30,7 +31,9 @@ function Header() {
 
                         <div className="header_menu_profile">
 
-                            <LogoutPopper />
+                            {/* <LogoutPopper /> */}
+
+                            <LoginPopper />
 
                         </div>
 
