@@ -7,6 +7,13 @@ import LogoutPopper from '../logoutPopper/LogoutPopper';
 import LoginPopper from '../loginPopper/LoginPopper';
 
 function Header() {
+    let loginStatus = (localStorage.getItem('isLoggedIn') === 'true') ? true : false
+    const [isLoggedIn, setIsLoggedIn] = React.useState(loginStatus);
+
+    const changeLoginStatus = (value) => {
+        setIsLoggedIn(value)
+    }
+
     return (
         <>
             <div className='header_outer-box'>
@@ -31,9 +38,11 @@ function Header() {
 
                         <div className="header_menu_profile">
 
-                            {/* <LogoutPopper /> */}
-
-                            <LoginPopper />
+                            {isLoggedIn ?
+                                <LogoutPopper changeLoginStatus={changeLoginStatus} />
+                                :
+                                <LoginPopper changeLoginStatus={changeLoginStatus} />
+                            }
 
                         </div>
 

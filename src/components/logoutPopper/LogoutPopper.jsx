@@ -6,7 +6,7 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
-function LogoutPopper() {
+function LogoutPopper(props) {
     let userName = localStorage.getItem('username').split(' ')[0];
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,7 +16,12 @@ function LogoutPopper() {
     };
 
     const open = Boolean(anchorEl);
-    const id = open ? 'simple-popper' : undefined;
+
+    const logoutUser = () => {
+        localStorage.clear()
+        localStorage.setItem('isLoggedIn', false)
+        props.changeLoginStatus(false)
+    }
 
     return (
         <>
@@ -28,7 +33,7 @@ function LogoutPopper() {
 
             </div>
 
-            <Popper id={id} open={open} anchorEl={anchorEl}>
+            <Popper open={open} anchorEl={anchorEl}>
 
                 <Box className='popper_logout-user' sx={{ bgcolor: 'background.paper' }}>
 
@@ -70,7 +75,7 @@ function LogoutPopper() {
 
                     </div>
 
-                    <div className="popper_logout-btn">Logout</div>
+                    <div className="popper_logout-btn" onClick={logoutUser}>Logout</div>
 
                 </Box>
 

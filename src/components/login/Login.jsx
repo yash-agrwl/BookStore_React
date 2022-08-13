@@ -10,7 +10,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const emailRegex = /^[a-z0-9]+([-+_.][a-z0-9]+)?[@][a-z0-9]+[.][a-z0-9]{2,3}([.][a-z]{2})?$/;
 const passwordRegex = /^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])[\w\d]{0,}[\W]{1}[\w\d]{0,}$/;
 
-function Login() {
+function Login(props) {
     const [showPassword, setShowPassword] = React.useState(false);
     const [logInObj, setLogInObj] = React.useState({ email: "", password: "" });
     const [regexObj, setRegexObj] = React.useState({ emailBorder: false, emailHelper: "", pwdBorder: false, pwdHelper: "" });
@@ -49,6 +49,8 @@ function Login() {
                 console.log(response);
                 localStorage.setItem('token', response.data.token)
                 localStorage.setItem('username',response.data.data.fullName)
+                localStorage.setItem('isLoggedIn', true)
+                props.changeLoginStatus(true)
             }).catch((error) => {
                 console.log(error)
             })

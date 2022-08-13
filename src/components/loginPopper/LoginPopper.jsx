@@ -8,7 +8,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import Modal from '@mui/material/Modal';
 import UserAccount from '../../pages/userAccount/UserAccount';
 
-function LoginPopper() {
+function LoginPopper(props) {
     // For Popper
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => {
@@ -73,7 +73,7 @@ function LoginPopper() {
 
             <Modal open={open} onClose={handleClose} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
-                <UserAccount />
+                <UserAccount changeLoginStatus={props.changeLoginStatus}/>
 
             </Modal>
         </>

@@ -5,14 +5,14 @@ import Button from '@mui/material/Button';
 import Signup from '../../components/signup/Signup';
 import Login from '../../components/login/Login';
 
-function UserAccount() {
+function UserAccount(props) {
 
     const [existAccount, setExistAccount] = React.useState(true)
 
     const switchForm = (existAccount) => {
         return (
             <>
-                {existAccount ? (<Login />) : (<Signup />)}
+                {existAccount ? (<Login changeLoginStatus={props.changeLoginStatus}/>) : (<Signup />)}
             </>
         )
     }
