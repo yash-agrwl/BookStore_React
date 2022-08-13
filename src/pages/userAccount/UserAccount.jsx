@@ -18,7 +18,7 @@ function UserAccount() {
     }
 
     return (
-        <div className='account_outer-box'>
+        // <div className='account_outer-box'>
 
             <div className="account_inner-box">
 
@@ -69,7 +69,7 @@ function UserAccount() {
 
             </div>
 
-        </div>
+        // </div>
     )
 }
 

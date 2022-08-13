@@ -2,13 +2,13 @@
     box-sizing: border-box;
 }
 
-.account_outer-box {
+/* .account_outer-box {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
-}
+} */
 
 .account_inner-box {
     display: flex;

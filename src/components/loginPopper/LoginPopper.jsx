@@ -5,16 +5,21 @@ import Popper from '@mui/material/Popper';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import Modal from '@mui/material/Modal';
+import UserAccount from '../../pages/userAccount/UserAccount';
 
 function LoginPopper() {
+    // For Popper
     const [anchorEl, setAnchorEl] = React.useState(null);
-
     const handleClick = (event) => {
         setAnchorEl(anchorEl ? null : event.currentTarget);
     };
+    const popperOpen = Boolean(anchorEl);
 
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popper' : undefined;
+    // For Modal
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     return (
         <>
@@ -26,7 +31,7 @@ function LoginPopper() {
 
             </div>
 
-            <Popper id={id} open={open} anchorEl={anchorEl}>
+            <Popper open={popperOpen} anchorEl={anchorEl}>
 
                 <Box className='popper_login-user' sx={{ bgcolor: 'background.paper' }}>
 
@@ -36,8 +41,8 @@ function LoginPopper() {
 
                         <div className="popper_detail">To acsess account and manage orders</div>
 
-                        <div className="popper_login-btn">LOGIN/SIGNUP</div>
-                        
+                        <div className="popper_login-btn" onClick={handleOpen}>LOGIN/SIGNUP</div>
+
                     </div>
 
                     <div className="popper_divider" />
@@ -65,6 +70,12 @@ function LoginPopper() {
                 </Box>
 
             </Popper>
+
+            <Modal open={open} onClose={handleClose} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+
+                <UserAccount />
+
+            </Modal>
         </>
     )
 }
