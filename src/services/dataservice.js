@@ -55,3 +55,9 @@ export const getAllFeedback = (bookId) => {
     let response = axios.get(`https://localhost:44356/api/Feedback/GetAll?bookId=${bookId}`, headerConfig)
     return response
 }
+
+export const getBookById = (bookId) => {
+    const headerConfig = setToken();
+    let response = axios.get(`https://localhost:44356/api/Book/GetById?bookId=${bookId}`, headerConfig)
+    return response
+}

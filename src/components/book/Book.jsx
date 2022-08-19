@@ -9,13 +9,14 @@ import StarIcon from '@mui/icons-material/Star';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { addFeedback, addToCart, getAllFeedback, getCartItems, updateCart } from '../../services/dataservice'
+import { addFeedback, addToCart, getAllFeedback, getBookById, getCartItems, updateCart } from '../../services/dataservice'
 import Feedback from '../feedback/Feedback'
 
 function Book(props) {
     const [bookCount, setBookCount] = React.useState(0);
     const [addFeedbackObj, setAddFeedbackObj] = React.useState({ bookId: props.book.bookID, rating: 0, comment: '' });
     const [feedbacks, setFeedbacks] = React.useState([])
+    const [bookReview, setBookReview] = React.useState({ rating: "", ratingCount: "" });
 
     React.useEffect(() => {
 
@@ -34,6 +35,8 @@ function Book(props) {
 
         getFeedbacksForBook()
 
+        getBookDataById()
+
         // eslint-disable-next-line
     }, [])
 
@@ -46,12 +49,25 @@ function Book(props) {
         })
     }
 
+    const getBookDataById = () => {
+        getBookById(props.book.bookID).then((response) => {
+            console.log(response);
+            setBookReview((prevState) => ({
+                ...prevState, rating: response.data.data.rating,
+                ratingCount: response.data.data.ratingCount
+            }))
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
     const submitFeedback = () => {
         console.log(addFeedbackObj)
         addFeedback(addFeedbackObj).then((response) => {
             console.log(response);
             getFeedbacksForBook();
             setAddFeedbackObj((prevState) => ({ ...prevState, rating: 0, comment: '' }));
+            getBookDataById();
         }).catch((error) => {
             console.log(error)
         })
@@ -162,13 +178,13 @@ function Book(props) {
 
                                 <div className="book_rating">
 
-                                    <div id='book_rating-star'>{props.book.rating}</div>
+                                    <div id='book_rating-star'>{bookReview.rating}</div>
 
                                     <StarIcon sx={{ width: '12px', height: '12px', color: '#FFFFFF' }} />
 
                                 </div>
 
-                                <div className="book_rating-count">({props.book.ratingCount})</div>
+                                <div className="book_rating-count">({bookReview.ratingCount})</div>
 
                             </div>
 
