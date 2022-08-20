@@ -7,7 +7,7 @@ import LogoutPopper from '../logoutPopper/LogoutPopper';
 import LoginPopper from '../loginPopper/LoginPopper';
 
 function Header() {
-    let loginStatus = (localStorage.getItem('isLoggedIn') === 'true') ? true : false
+    let loginStatus = (localStorage.getItem('token') === null) ? false : true
     const [isLoggedIn, setIsLoggedIn] = React.useState(loginStatus);
 
     const changeLoginStatus = (value) => {

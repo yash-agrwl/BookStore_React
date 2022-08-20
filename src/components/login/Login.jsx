@@ -49,7 +49,6 @@ function Login(props) {
                 console.log(response);
                 localStorage.setItem('token', response.data.token)
                 localStorage.setItem('username',response.data.data.fullName)
-                localStorage.setItem('isLoggedIn', true)
                 props.changeLoginStatus(true)
             }).catch((error) => {
                 console.log(error)

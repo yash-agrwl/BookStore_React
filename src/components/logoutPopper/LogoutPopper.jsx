@@ -19,7 +19,6 @@ function LogoutPopper(props) {
 
     const logoutUser = () => {
         localStorage.clear()
-        localStorage.setItem('isLoggedIn', false)
         props.changeLoginStatus(false)
     }
 
